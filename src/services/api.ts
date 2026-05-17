@@ -1,10 +1,11 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-const ip_real = '192.168.0.8'
+// const baseURL_local = 'http://192.168.0.8:8000/api/';
+const baseURL_prod  = 'https://desafio-tecnico-back-end-django-production.up.railway.app/api/';
 
 const api = axios.create({
-    baseURL: `http://${ip_real}:8000/api/`,
+    baseURL: baseURL_prod,
     timeout: 10000,
     headers:{
         'Content-Type':'application/json',
