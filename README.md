@@ -32,11 +32,13 @@ A estrutura de diretórios do frontend está organizada de forma modular, separa
 │   ├── services/            # Camada de Integração de Serviços
 │   │   └── api.ts           # Instância do Axios configurada com Interceptor de Token JWT
 │   ├── style/               # Arquivos de estilização centralizada dos componentes
-│   │   ├── estiloHome.ts    # Estilos do Dashboard e Listas
-│   │   └── estiloAgendar.ts # Estilos de inputs, labels e botões do formulário
+│   │   ├── estiloHome.ts   
+│   │   └── estiloAgendar.ts 
+|   |   ├── estiloDetalhe.ts
+|   |   └── estiloLogin.ts
 │   └── utils/               # Funções auxiliares e helpers reutilizáveis
-│       ├── mascaras.ts      # Máscaras visuais de entrada em tempo real (Data e Hora)
-│       └── validacoes.ts    # Motores de validação de regras de negócio no dispositivo
+│       ├── mascaras.ts      
+│       └── validacoes.ts    
 ├── package.json             # Manifesto de dependências e scripts do ecossistema Node
 └── .gitignore               # Filtro de segurança de arquivos para versionamento Git
 ```
