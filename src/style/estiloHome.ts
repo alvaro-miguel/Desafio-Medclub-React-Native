@@ -1,0 +1,95 @@
+import { StyleSheet } from "react-native";
+
+export const estiloHome = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+  },
+  headerContainer: {
+    backgroundColor:"#007AFF",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 50,
+    paddingBottom: 7,
+    marginBottom: 20,
+    paddingHorizontal: 20,
+  },
+  card: {
+    backgroundColor: "#007AFF",
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 12,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4
+  },
+  medicoText: {
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#FFF",
+  },
+  dataHoraText: {
+    fontSize: 14,
+    color: "#FFF",
+    marginTop: 4,
+  },
+  headerTitle: {
+    textAlign: "center",
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#FFF",
+    marginLeft: 20,
+    marginBottom: 20,
+  },
+  listPadding: {
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+  emptyText: {
+    textAlign: "center",
+    marginTop: 50,
+    color: "#999",
+  },
+  btnAgendar: {
+    position: 'absolute',
+    right: 30,
+    bottom: 50,
+    backgroundColor: '#007AFF',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+  },
+  textoAgendar: {
+    color: '#FFF',
+    fontSize: 32,
+    fontWeight: '300',
+    textAlign: "center",
+    marginTop: -4,
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  especialidadeText: {
+    fontSize: 13,
+    color: "#007AFF",
+    backgroundColor: "#E3F2FD",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+    alignSelf: 'flex-start',
+    marginTop: 6,
+    fontWeight: "500",
+    overflow: 'hidden',
+  }
+});
