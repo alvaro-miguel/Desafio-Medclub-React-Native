@@ -99,4 +99,5 @@ npx expo start
 Instale o aplicativo Expo Go em seu dispositivo móvel (disponível no Google Play ou App Store).
 
 Abra a câmera do seu celular (iOS) ou a ferramenta de escaneamento dentro do Expo Go (Android) e leia o QR Code impresso no terminal.
+
 ⚠️ **Nota de Conectividade:** Para que o Expo Go consiga se conectar ao servidor Metro local, o smartphone e o computador **devem estar na mesma rede Wi-Fi**. Caso o aplicativo trave em `0%` ou dê erro de conexão (Network Error), verifique se o **Firewall do Windows** não está bloqueando o tráfego de rede privada para o `Node.js`. Se necessário, permita o acesso do Node.js através do Firewall ou crie uma regra de entrada para a porta `8081`.
