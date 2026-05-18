@@ -1,8 +1,7 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-// const baseURL_local = 'http://192.168.0.8:8000/api/';
-const baseURL_prod  = 'https://desafio-tecnico-back-end-django-production.up.railway.app/api/';
+const baseURL_prod  = `${process.env.EXPO_PUBLIC_API_URL}/api/`;
 
 const api = axios.create({
     baseURL: baseURL_prod,
