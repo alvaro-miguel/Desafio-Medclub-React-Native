@@ -173,6 +173,3 @@ Certifique-se de que:
 - e o computador;
 
 estejam conectados exatamente à mesma rede Wi-Fi.
-    └── utils/           # Funções auxiliares e helpers reutilizáveis
-        ├── mascaras.ts      
-        └── validacoes.ts
