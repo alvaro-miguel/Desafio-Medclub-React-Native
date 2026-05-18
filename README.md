@@ -39,7 +39,7 @@ A estrutura de diretórios do frontend está organizada de forma modular, separa
     │   ├── estiloAgendar.ts 
     │   ├── estiloDetalhe.ts
     │   └── estiloLogin.ts
-
+```
 # 🎯 Engenharia e Recursos Implementados no App
 
 ## 1. Estado Global e Persistência de Sessão (`consultasContext.tsx`)
