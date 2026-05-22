@@ -30,7 +30,7 @@ export default function Index() {
     }
 
 
-    const renderizaItem = ({ item }: { item: Consulta }) => (
+    const renderizaItem = ({ item }: { item: any }) => (
     <TouchableOpacity 
         style={estiloHome.card}
         onPress={() => router.push({
@@ -38,7 +38,7 @@ export default function Index() {
             params: { 
                 id: item.id,
                 data: formatarData(item.data),
-                hora: item.hora,
+                hora: item.horario_texto || "Não informado",
                 localizacao: item.localizacao,
                 medico: item.especialista_detalhes?.nome || "Não informado",          
                 especialidade: item.especialista_detalhes?.especialidade || "Não informada" 
@@ -46,7 +46,7 @@ export default function Index() {
         })}
     >
         <Text style={estiloHome.medicoText}>{item.especialista_detalhes?.nome}</Text>
-        <Text style={estiloHome.dataHoraText}>{formatarData(item.data)} às {item.hora}</Text>
+        <Text style={estiloHome.dataHoraText}>{formatarData(item.data)} às {item.horario_texto || ""}</Text>
     </TouchableOpacity>
 );
 
