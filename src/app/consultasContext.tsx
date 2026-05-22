@@ -1,27 +1,29 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import api from '@/services/api';
-import * as SecureStore from 'expo-secure-store'
-
+import * as SecureStore from 'expo-secure-store';
 
 export interface Consulta {
     id: string;
     data: string;
-    hora: string;
+    horario_selecionado: number; 
     localizacao: string;
-    especialista:number;
-    especialista_detalhes?:{
-        id:number;
-        nome:string;
-        especialidade:string;
+    especialista: number;
+    especialista_detalhes?: {
+        id: number;
+        nome: string;
+        especialidade: string;
+    };
+    horario_detalhes?: {
+        id: number;
+        horario: string;
     };
 }
 
 interface dadosConsultasContnexto {
     consultas: Consulta[];
     adicionarConsulta: (nova: Consulta) => void;
-    excluirConsulta: (id:string) => void;
-    login: (username: string, password: string) => Promise<void>
-
+    excluirConsulta: (id: string | number) => void; 
+    login: (username: string, password: string) => Promise<void>;
 }
 
 const ConsultasContnexto = createContext<dadosConsultasContnexto>({} as dadosConsultasContnexto);
@@ -33,10 +35,10 @@ export const ConsultasProvider = ({ children }: { children: React.ReactNode }) =
         const dadosIniciaiss = async () => {
             const token = await SecureStore.getItemAsync('user_acess_token');
 
-            if(token){
+            if (token) {
                 api.get('consultas/')
-                .then(response => setConsultas(response.data))
-                .catch(error => console.error("Não foi possível carregar as consultas.", error));
+                    .then(response => setConsultas(response.data))
+                    .catch(error => console.error("Não foi possível carregar as consultas.", error));
             }
         };
 
@@ -47,31 +49,29 @@ export const ConsultasProvider = ({ children }: { children: React.ReactNode }) =
         setConsultas((atual) => [nova, ...atual]);
     };
 
-
-    const excluirConsulta = async (id:string | number)=>{
-        try{
-            const idFormatado = isNaN(Number(id)) ? id: Number(id);
+    const excluirConsulta = async (id: string | number) => {
+        try {
+            const idFormatado = isNaN(Number(id)) ? id : Number(id);
             await api.delete(`consultas/${idFormatado}/`);
             setConsultas((atual) => atual.filter(c => Number(c.id) !== Number(idFormatado)));
-        } catch (error){
+        } catch (error) {
             console.error("Erro ao excluir consulta: ", error);
             alert("Não foi possível excluir consulta");
         }
     };
 
-
-    const login = async (username:string, password:string) => {
-        try{
-            const response = await api.post('token/', {username, password});
+    const login = async (username: string, password: string) => {
+        try {
+            const response = await api.post('token/', { username, password });
             const { access } = response.data;
 
             await SecureStore.setItemAsync('user_acess_token', access);
 
             const responseConsultas = await api.get('consultas/');
             setConsultas(responseConsultas.data);
-        } catch (error){
-            console.error('Erro ao realizar login', error)
-            alert("Falha no login!")
+        } catch (error) {
+            console.error('Erro ao realizar login', error);
+            alert("Falha no login!");
         }
     };
 
